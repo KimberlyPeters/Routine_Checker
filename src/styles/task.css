@@ -1,0 +1,155 @@
+.box {
+    height: 60px;
+    position: relative;
+    width: 1088px;
+  }
+  
+  .box .navigation {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 30px 60px #1f375526;
+    height: 60px;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 1088px;
+  }
+  
+  .box .group {
+    height: 13px;
+    left: 842px;
+    position: absolute;
+    top: 24px;
+    width: 220px;
+  }
+  
+  .box .samantha {
+    color: #08a0f7;
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-size: 13px;
+    font-weight: 600;
+    left: 0;
+    letter-spacing: 0.5px;
+    line-height: 13px;
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+  }
+  
+  .box .text-wrapper {
+    color: #121212;
+    font-family: "Poppins-Regular", Helvetica;
+    font-size: 13px;
+    font-weight: 400;
+    left: 91px;
+    letter-spacing: 0.5px;
+    line-height: 13px;
+    opacity: 0.6;
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+  }
+  
+  .box .div {
+    color: #121212;
+    font-family: "Poppins-Regular", Helvetica;
+    font-size: 13px;
+    font-weight: 400;
+    left: 183px;
+    letter-spacing: 0.5px;
+    line-height: 13px;
+    opacity: 0.6;
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+  }
+  
+  .box .group-2 {
+    height: 28px;
+    left: 24px;
+    position: absolute;
+    top: 16px;
+    width: 74px;
+  }
+  
+  .box .samantha-2 {
+    color: #08a0f7;
+    font-family: "Poppins-Bold", Helvetica;
+    font-size: 12px;
+    font-weight: 700;
+    left: 38px;
+    letter-spacing: 0.5px;
+    line-height: 15px;
+    position: absolute;
+    top: 6px;
+    white-space: nowrap;
+  }
+  
+  .box .overlap-group-wrapper {
+    height: 28px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 30px;
+  }
+  
+  .box .overlap-group {
+    background-color: #08a0f7;
+    border-radius: 14px;
+    height: 28px;
+    position: relative;
+    width: 28px;
+  }
+  
+  .box .samantha-3 {
+    color: #ffffff;
+    font-family: "Poppins-Bold", Helvetica;
+    font-size: 12.2px;
+    font-weight: 700;
+    left: 10px;
+    letter-spacing: 0.26px;
+    line-height: 13.1px;
+    position: absolute;
+    top: 7px;
+    white-space: nowrap;
+    width: 8px;
+  }
+  
+  .box .overlap-wrapper {
+    height: 36px;
+    left: 136px;
+    position: absolute;
+    top: 12px;
+    width: 628px;
+  }
+  
+  .box .overlap {
+    background-color: #f4f7fc;
+    border-radius: 200px;
+    height: 36px;
+    position: relative;
+    width: 626px;
+  }
+  
+  .box .samantha-4 {
+    color: #121212;
+    font-family: "Poppins-Regular", Helvetica;
+    font-size: 12px;
+    font-weight: 400;
+    left: 57px;
+    letter-spacing: 0.5px;
+    line-height: 12px;
+    opacity: 0.5;
+    position: absolute;
+    top: 11px;
+    white-space: nowrap;
+  }
+  
+  .box .img {
+    height: 13px;
+    left: 19px;
+    position: absolute;
+    top: 11px;
+    width: 13px;
+  }
+  
