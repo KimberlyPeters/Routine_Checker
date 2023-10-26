@@ -1,9 +1,9 @@
 import React from "react";
-import "./task.css";
+import styles from "../styles/task.module.css";
 
-export const Box = (): JSX.Element => {
+const TaskNav = () => {
   return (
-    <div className="box">
+    <div className={styles.box}>
       <div className="navigation">
         <div className="group">
           <div className="samantha">Projects</div>
@@ -28,3 +28,5 @@ export const Box = (): JSX.Element => {
     </div>
   );
 };
+
+export default TaskNav;
