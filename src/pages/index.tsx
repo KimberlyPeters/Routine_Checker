@@ -6,7 +6,7 @@ const LoginPage = () => {
   const router = useRouter();
 
   useEffect(() => {
-    router.push("/tasknav");
+    router.push("/dashboard");
   }, []);
 
   return (
