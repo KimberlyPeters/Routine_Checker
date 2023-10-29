@@ -27,6 +27,8 @@ const dashboard = () => {
           </div>
         </div>
       </div>
+      </div>
+      <div className="assignbox">
       <div className="create-new-card">
         <img className="line" alt="Line" src="line-3.svg" />
         <div className="group">
@@ -36,7 +38,6 @@ const dashboard = () => {
             </div>
           </div>
           {/* <Tag className="basic-tag" /> */}
-          <div className="box">
           <div className="overlap-wrapper">
             <div className="overlap">
               <div className="rectangle" />
@@ -71,7 +72,6 @@ const dashboard = () => {
           </div>
         </div>
       </div>
-    </div>
     </div>
     </>
   );
