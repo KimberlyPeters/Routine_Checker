@@ -18,7 +18,7 @@ const useAuth = () => {
         toast.success("Login Successful");
         setLoading(false);
         setTimeout(() => {
-          router.push("/dashboard");
+          router.push("/maindashboard");
         }, 2000);
       })
       .catch((err: any) => {
