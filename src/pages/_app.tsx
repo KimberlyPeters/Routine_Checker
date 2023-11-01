@@ -4,6 +4,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "@/styles/dashboard.css";
 import "@/styles/task.css";
+// import "../../public"
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
