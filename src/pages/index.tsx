@@ -46,9 +46,9 @@ const Homepage: React.FC = () => {
               <Image
                 src={task}
                 alt="task"
-                className="block mx-auto xl:mx-0"
-                width={200}
-                height={200}
+                className="block mx-auto xl:mx-0 width:50px height:100px"
+                // width={200}
+                // height={200}
               />
             </div>
           </div>
