@@ -25,7 +25,7 @@ function CreateTaskPage() {
       setError("");
       setSuccess(false);
       // Save task into DB
-      await addDoc(collection(db, "tasks"), {
+      await addDoc(collection(db,"tasks"), {
         task: task.trim(),
         status: "unstarted",
         startTime: null,
@@ -75,7 +75,7 @@ function CreateTaskPage() {
             <button
               disabled={loading}
               type="submit"
-              className="w-full bg-gradient-to-r from-pink-500 to-purple-500 bg-opacity-50 hover:bg-opacity-75 text-white py-3 px-6 rounded focus:outline-none focus:ring-2 focus:ring-white"
+              className="w-full bg-gradient-to-r from-pink-400 to-purple-500 bg-opacity-50 hover:bg-opacity-75 text-white py-3 px-6 rounded focus:outline-none focus:ring-2 focus:ring-white"
             >
               {loading ? "Loading please wait" : "Create Task"}
             </button>
