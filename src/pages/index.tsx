@@ -1,6 +1,7 @@
 import React from "react";
-import Image from 'next/image';
-import { Link } from "react-router-dom";
+import Image from "next/image";
+import Link from "next/link";
+// import { Link } from "react-router-dom";
 import task from "../images/task.png";
 import work from "../images/work.png";
 
@@ -27,13 +28,13 @@ const Homepage: React.FC = () => {
                 </p>
                 <div className="sm:flex items-center">
                   <Link
-                    to="/login"
+                    href="/login"
                     className="inline-block w-full sm:w-auto py-4 px-6 mb-4 sm:mb-0 sm:mr-4 text-center font-heading font-medium text-base text-white bg-blue-500 hover:bg-green-600 border border-green-500 hover:border-green-600 rounded-sm transition duration-200"
                   >
                     Start taking control of your time today!
                   </Link>
                   <Link
-                    to="/register"
+                    href="/register"
                     className="inline-block w-full sm:w-auto py-4 px-6 mb-4 sm:mb-0 sm:mr-4 text-center font-heading font-medium text-base text-white bg-red-500 hover:bg-green-600 border border-green-500 hover:border-green-600 rounded-sm transition duration-200"
                   >
                     Enroll Now
@@ -42,14 +43,14 @@ const Homepage: React.FC = () => {
               </div>
             </div>
             <div className="w-full lg:w-1/2 px-4">
-                <Image
-                    src={task}
-                    alt="task"
-                    className="block mx-auto xl:mx-0"
-                    width={200}
-                    height={200}
-                />
-          </div>
+              <Image
+                src={task}
+                alt="task"
+                className="block mx-auto xl:mx-0"
+                width={200}
+                height={200}
+              />
+            </div>
           </div>
           <a className="inline-block text-gray-900" href="#">
             <svg
@@ -76,11 +77,11 @@ const Homepage: React.FC = () => {
       {/* How it works */}
       <section className="relative pt-16 lg:pb-16 bg-gray-50 overflow-hidden">
         <Image
-        className="hidden lg:block absolute top-0 right-0"
-        src={work}
-        alt="work"
-        layout="fill"
-        objectFit="cover"
+          className="hidden lg:block absolute top-0 right-0"
+          src={work}
+          alt="work"
+          layout="fill"
+          objectFit="cover"
         />
         <div className="container px-4 mx-auto">
           <div className="w-full lg:w-1/2">
@@ -216,4 +217,3 @@ const Homepage: React.FC = () => {
 };
 
 export default Homepage;
-
