@@ -1,0 +1,13 @@
+.contain {
+    background: url('../images/work.png') no-repeat;
+    background-size: cover;
+    color: black;
+    padding: 50px 9%;
+    height: 100vh;
+}
+
+@media screen and (max-width: 700px) {
+    .contain {
+        background: #fff
+    }
+}
