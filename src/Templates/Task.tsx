@@ -1,4 +1,4 @@
-mport React from "react";
+import React from "react";
 import { BsCircleFill } from "react-icons/bs";
 import {
   AiOutlineEdit,

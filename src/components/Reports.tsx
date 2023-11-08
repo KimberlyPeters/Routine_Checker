@@ -1,4 +1,4 @@
-mport React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AiOutlineLogout } from "react-icons/ai";
 import { getAuth } from "firebase/auth";
 import {

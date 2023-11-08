@@ -1,4 +1,4 @@
-mport React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { getAuth, onAuthStateChanged, User } from "firebase/auth";
 import { Navigate, useLocation, Outlet, useNavigate } from "react-router-dom";
 import Loading from "./Loading";

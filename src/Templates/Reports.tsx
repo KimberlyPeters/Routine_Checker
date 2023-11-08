@@ -1,4 +1,4 @@
-mport React from "react";
+import React from "react";
 import { AiOutlineLogout } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
