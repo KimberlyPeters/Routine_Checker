@@ -18,8 +18,8 @@ const Homepage: React.FC = () => {
       <section className="pb-12" id="landpage-section">
         <Navbar />
         <div className="relative container px-4 mx-auto">
-          <div className="sec1-div flex flex-wrap -mx-4 items-center mb-16">
-            <div className="w-full px-4 mb-20 mt-20 lg:mb-0 text-center text-white">
+          <div className="flex flex-wrap -mx-4 items-center mb-16">
+            <div className="sec1-div w-full px-4 mb-20 mt-20 lg:mb-0 text-center text-white">
               {/* <div className="max-w-md md:max-w-lg mx-auto xl:mx-0"> */}
               {/* <div
                 className="text-sm mb-2 mt-5 font-semibold"

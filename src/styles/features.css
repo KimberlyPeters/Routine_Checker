@@ -19,6 +19,9 @@ div.max-w-md.xl\:max-w-lg>div.f-div.items-center.mb-4{
 } */
 @media screen and (max-width: 480px) {
     /* Your CSS styles for larger screens */
+    div.sec1-div{
+        margin-top: 0;
+    }
     div.button-div{
         margin-top: -20px;
     }
