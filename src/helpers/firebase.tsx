@@ -4,14 +4,15 @@ import 'firebase/compat/firestore';
 import 'firebase/compat/storage';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBd16MjSNjgPoC9kUSw2VSICiAEZjwi1tM",
-  authDomain: "nubiaville-5439d.firebaseapp.com",
-  projectId: "nubiaville-5439d",
-  storageBucket: "gs://nubiaville-5439d.appspot.com",
-  messagingSenderId: "40538881530",
-  appId: "1:40538881530:web:d023e5f17aaabaef29f843",
-  measurementId: "G-TSTM8TNNX2",
+  apiKey: "AIzaSyAh5ReKmFBnYXG0a80envK5MaPgCifk3vY",
+  authDomain: "routinechecker-app.firebaseapp.com",
+  projectId: "routinechecker-app",
+  storageBucket: "routinechecker-app.appspot.com",
+  messagingSenderId: "1098039737226",
+  appId: "1:1098039737226:web:655af8fae3fd3c4ed22673",
+  measurementId: "G-M7Y3RCGSLK"
 };
+
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 

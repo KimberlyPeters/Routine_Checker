@@ -94,17 +94,17 @@ const Login: React.FC = () => {
                 </button>
               </div>
               <div className="mb-4">
-                <Link href="/maindashboard">
-                <button
-                  type="submit"
-                  className="w-full h-12 bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleLogin(email, password);
-                  }}
-                >
-                  {loading ? <Spinner /> : "Login"}
-                </button>
+                <Link href="/dashboard">
+                  <button
+                    type="submit"
+                    className="w-full h-12 bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleLogin(email, password);
+                    }}
+                  >
+                    {loading ? <Spinner /> : "Login"}
+                  </button>
                 </Link>
               </div>
             </form>
