@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import logo from "../../public/logo.svg";
+// import logo from "public/logo.svg";
 import Link from "next/link";
 import usePasswordVisibility from "@/helpers/utils";
 import useAuth from "@/hooks/useAuth";
@@ -43,7 +43,7 @@ const Login: React.FC = () => {
       {loginVisible ? (
         <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
           <Image
-            src={logo}
+            src="/logo.svg"
             height={200}
             width={200}
             alt="logo"

@@ -1,0 +1,58 @@
+.contain {
+    background: white;
+    background-size: cover;
+    color: black;
+    padding: 50px 9%;
+    height: 90vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.contain>.featureImg{
+    /* top: 100px; */
+    bottom: 100px;
+}
+/* @media screen and (max-width: 480px) {
+}
+div.max-w-md.xl\:max-w-lg>div.f-div.items-center.mb-4{
+    margin-bottom: 2rem;
+
+} */
+@media screen and (max-width: 480px) {
+    /* Your CSS styles for larger screens */
+    div.sec1-div{
+        margin-top: 0;
+    }
+    div.button-div{
+        margin-top: -20px;
+    }
+
+    div.contain{
+        display: block;
+    }
+
+    div.contain>img.block{
+        display: none;
+    }
+    div.max-w-md.xl\:max-w-lg>div.f-div.items-center.mb-4{
+        margin-bottom: 0;
+
+    }
+    div.max-w-md.xl\:max-w-lg>p.leading-8{
+        /* margin-bottom: 0; */
+        font-size: 14px;
+        line-height: 1.5rem;
+  }
+}
+@media screen and (min-width: 769px) {
+    
+    div.max-w-md.xl\:max-w-lg>div.f-div.items-center.mb-4{
+        margin-bottom: 0;
+
+    }
+    div.max-w-md.xl\:max-w-lg>p.leading-8{
+        /* margin-bottom: 0; */
+        font-size: 14px;
+        line-height: 1.5rem;
+
+    }
+}
