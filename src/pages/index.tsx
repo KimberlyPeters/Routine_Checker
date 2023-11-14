@@ -214,8 +214,8 @@ const Homepage: React.FC = () => {
       </section>
       <Team />
       <About />
-      <Contact />
-      <Footer />
+      <Contact/>
+      <Footer/>
     </>
   );
 };

@@ -4,7 +4,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    background: transparent;
+    background: inherit;
   }
   
   .nav ul {
@@ -19,6 +19,7 @@
   .nav ul li {
     margin: 0;
     font-weight: 450;
+    
   }
   
   .nav ul li:last-child {

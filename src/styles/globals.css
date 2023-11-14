@@ -1,47 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* styles.css */
-/* @import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities'; */
-/* @import url(../../public/angle-down.svg);
-@import url(../../public/background.svg);
-@import url(../../public/combined-shape.svg);
-@import url(../../public/ellipse-1.svg);
-@import url(../../public/ellipse-2.svg);
-@import url(../../public/group-13.svg);
-@import url(../../public/group-17.svg);
-@import url(../../public/group-41.svg);
-@import url(../../public/group-42.svg);
-@import url(../../public/group-44.svg);
-@import url(../../public/group-45.svg);
-@import url(../../public/group-47.svg);
-@import url(../../public/group-48.svg);
-@import url(../../public/group-49.svg);
-@import url(../../public/group-50.svg);
-@import url(../../public/group-51.svg);
-@import url(../../public/group-52.svg);
-@import url(../../public/group-53.svg);
-@import url(../../public/group-55.svg);
-@import url(../../public/ic_bell.svg);
-@import url(../../public/menu-1.svg);
-@import url(../../public/logo.svg);
-@import url(../../public/polygon-1.svg);
-@import url(../../public/profilePicture.svg);
-@import url(../../public/rectangle-168.png);
-@import url(../../public/rectangle-169.jpeg);
-@import url(../../public/rectangle-170.png);
-@import url(../../public/rectangle-187.png);
-@import url(../../public/rectangle-189.png);
-@import url(../../public/time-schedule.svg);
- */
-
-
-
-
-
-
 
 :root {
   --foreground-rgb: 0, 0, 0;

@@ -27,7 +27,7 @@ const PrivateRoute: React.FC = ({ children }) => {
   if (isAuthenticated === true) {
     return <Outlet />;
   } else if (isAuthenticated === false) {
-    return <Navigate to="/login" state={{ from: location }} />;
+    return <Link ="/login" />;
   } else {
     // If isAuthenticated is still null, you can show a loading indicator or handle it differently
     return <Loading />;

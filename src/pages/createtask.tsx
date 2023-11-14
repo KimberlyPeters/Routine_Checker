@@ -1,6 +1,6 @@
 import React, { useState, FormEvent } from "react";
 import { AiOutlineFieldTime } from "react-icons/ai";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { addDoc, collection, getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import { app } from "../helpers/firebase";
@@ -13,9 +13,9 @@ const auth = getAuth(app);
 function CreateTaskPage() {
   const [task, setTask] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<string>("");
   const [success, setSuccess] = useState<boolean>(false);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   // Create task handler
   const handleSubmit = async (event: FormEvent) => {
@@ -30,7 +30,7 @@ function CreateTaskPage() {
         status: "unstarted",
         startTime: null,
         endTime: null,
-        userId: auth.currentUser.uid,
+        userId: auth.currentUser?.uid,
       });
       setSuccess(true);
       setTask("");
@@ -44,7 +44,7 @@ function CreateTaskPage() {
 
   return (
     <div className="bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 min-h-screen flex items-center justify-center">
-      <div className="bg-white bg-opacity-10 p-10 rounded-lg backdrop-filter backdrop-blur-lg shadow-lg max-w-md w-full">
+      <div className="bg-white bg-opacity-10 p-10 rounded-lg backdrop-filter backdrop-blur-lg shadow-lg max-w-md w-full m-px">
         <h1 className="text-4xl font-bold text-white mb-4 text-shadow flex items-center space-x-2">
           <AiOutlineFieldTime />
           <span>Create a new task</span>

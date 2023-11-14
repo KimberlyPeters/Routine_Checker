@@ -20,12 +20,9 @@ import {
 } from "firebase/firestore";
 import { Link } from "react-router-dom";
 import Task from "./Task";
-import app from "../helpers/firebase";
+import {app, auth, db} from "@/helpers/firebase";
 
-// Auth instance
-const auth = getAuth(app);
-// Database instance
-const db = getFirestore(app);
+
 
 function Reports() {
   // Local state
