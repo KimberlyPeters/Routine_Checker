@@ -38,11 +38,5 @@ body {
     rgba(25, 25, 186, 0.809)
   ),url('../images/Timemanagement.jpg');
   height: 95vh;
-  /* background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center; */
 
-  /* backgroundSize: "cover", // Adjust the background size as needed
-  backgroundRepeat: "no-repeat",
-  backgroundPosition: "center center", */
 };

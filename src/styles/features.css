@@ -11,14 +11,8 @@
     /* top: 100px; */
     bottom: 100px;
 }
-/* @media screen and (max-width: 480px) {
-}
-div.max-w-md.xl\:max-w-lg>div.f-div.items-center.mb-4{
-    margin-bottom: 2rem;
-
-} */
 @media screen and (max-width: 480px) {
-    /* Your CSS styles for larger screens */
+    /* CSS styles for larger screens */
     div.sec1-div{
         margin-top: 0;
     }
@@ -38,7 +32,6 @@ div.max-w-md.xl\:max-w-lg>div.f-div.items-center.mb-4{
 
     }
     div.max-w-md.xl\:max-w-lg>p.leading-8{
-        /* margin-bottom: 0; */
         font-size: 14px;
         line-height: 1.5rem;
   }
@@ -50,7 +43,6 @@ div.max-w-md.xl\:max-w-lg>div.f-div.items-center.mb-4{
 
     }
     div.max-w-md.xl\:max-w-lg>p.leading-8{
-        /* margin-bottom: 0; */
         font-size: 14px;
         line-height: 1.5rem;
 

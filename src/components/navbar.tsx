@@ -5,8 +5,6 @@ import styles from "@/styles/nav.module.css";
 import { useState } from "react";
 import { FaBars } from "react-icons/fa";
 
-// import Logo from "../../public/logo.svg"
-
 const navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
 
@@ -16,7 +14,7 @@ const navbar = () => {
   return (
     <nav className={styles.nav}>
       <a href="/">
-        <Image src="/RoutineIcon.png" width={80} height={200} alt="logo" />
+        <Image src="/RoutineIcon.png" width={100} height={200} alt="logo" />
       </a>
 
       <ul className={`${styles.menu} ${showMenu ? styles.show : ""}`}>

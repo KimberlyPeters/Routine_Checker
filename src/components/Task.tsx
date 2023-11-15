@@ -192,9 +192,7 @@ function Task({ task }: TaskProps) {
               : "Date not available"}
           </p>
 
-          {/* <p className="text-gray-600">
-            {format(new Date(localTask.date), "do MMM yyyy")}
-          </p> */}
+
         </div>
       </div>
       <div className="flex items-center space-x-2 justify-center">

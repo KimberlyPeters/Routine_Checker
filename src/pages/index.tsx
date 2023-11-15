@@ -20,18 +20,10 @@ const Homepage: React.FC = () => {
         <div className="relative container px-4 mx-auto">
           <div className="flex flex-wrap -mx-4 items-center mb-16">
             <div className="sec1-div w-full px-4 mb-20 mt-20 lg:mb-0 text-center text-white">
-              {/* <div className="max-w-md md:max-w-lg mx-auto xl:mx-0"> */}
-              {/* <div
-                className="text-sm mb-2 mt-5 font-semibold"
-                style={{ fontSize: "17.5px" }}
-              >
-                <span>Routine</span>
-                <span className="text-blue-500">Checker</span>
-              </div> */}
               <h1 className="font-heading text-4xl md:text-5xl mb-6">
                 Achieve more <span style={{ color: "blue" }}>Stress less</span>
               </h1>
-              <p className="fparagraph text-lg leading-8 mb-10 px-2">
+              <p className="fparagraph text-2xl leading-8 mb-10 px-2">
                 Effortlessly manage and track your tasks to improve productivity
                 and achieve your goals. Stay organized, <br /> prioritize
                 effectively, and maximize your time with our task time tracking
@@ -50,7 +42,6 @@ const Homepage: React.FC = () => {
                 >
                   Enroll Now
                 </Link>
-                {/* </div> */}
               </div>
             </div>
           </div>
@@ -79,9 +70,7 @@ const Homepage: React.FC = () => {
       <section className="" id="Features">
         <div>
           <div className="contain px-4 mx-auto">
-            {/* <div className="w-full lg:w-1/2" > */}
             <div className="max-w-md xl:max-w-lg">
-              {/* <div className="featureImg w-full lg:w-1/2 px-4"> */}
 
               {/* </div> */}
               <h1 className="mt-2 mb-3 text-3xl font-black text-gray-700 md:text-5xl dark:text-gray-300">

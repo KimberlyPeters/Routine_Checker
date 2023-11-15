@@ -32,15 +32,12 @@ const Task = ({ task }) => {
         </div>
       </div>
       <div className="flex">
-        {/* Add your action buttons here */}
-        {/* For example, you can add an Edit button */}
         <button className="mr-2 text-blue-600 dark:text-gray-400"
         type="submit"
         onClick={handleDelete}
         >
           Edit
         </button>
-        {/* And a Delete button */}
         <button className="text-red-600 dark:text-gray-400">
           Delete
         </button>

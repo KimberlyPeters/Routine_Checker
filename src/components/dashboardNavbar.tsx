@@ -32,17 +32,6 @@ const dashboardNavbar = () => {
           <Link href="">help</Link>
         </li>
       </ul>
-      {/* <ul className={`${styles.menu} ${showMenu ? styles.show : ""}`}>
-      <li>
-        <Link href="/login">Login</Link>
-      </li>
-      <li>
-        <Link href="/signup">Signup</Link>
-      </li>
-    </ul> */}
-      {/* <div>
-      <FaBars className={styles.menuIcon} onClick={toggleMenu}/>
-    </div> */}
     </nav>
   );
 };
