@@ -1,20 +1,40 @@
 import React from "react";
+import { useState } from "react";
+
+// components imports
 import Navbar from "@/components/dashboardNavbar";
 import CreateTask from "@/components/createTask";
-import TaskDisplay from "@/components/taskDisplay";
-import Tdashboard from "@/components/tdashboard";
+// import Tdashboard from "@/components/tdashboard";
+import Sidebar from "@/components/sidebar";
+import Reports from "@/components/Reports";
+import Task from "@/components/Task";
 
 const dashboard = () => {
   return (
     <>
-    <Tdashboard/>
-      {/* <Navbar />
+      <Sidebar />
       <section className="dashboard-section">
-        <CreateTask />
       </section>
-      <section className="Task-overview px-4 py-6">
-        <TaskDisplay />
+
+      {/* <section>
+        <Task/>
       </section> */}
+
+      {/* <section className="Task-overview px-4 py-6">
+        
+              <section className="dashboard-section">
+        
+      </section>
+
+        
+      <main className="w-full p-4"></main>
+        
+        </section> */}
+
+      {/* <Tdashboard/> */}
+      {/* <Navbar />
+      
+      */}
     </>
   );
 };

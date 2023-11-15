@@ -17,12 +17,12 @@ import {
   where,
   onSnapshot,
   DocumentData,
+  Unsubscribe,
 } from "firebase/firestore";
-import { Link } from "react-router-dom";
-import Task from "./Task";
-import {app, auth, db} from "@/helpers/firebase";
-
-
+// import { Link } from "react-router-dom";
+import Link from "next/link";
+import Task from "@/components/Task";
+import { app, auth, db } from "@/helpers/firebase";
 
 function Reports() {
   // Local state
@@ -35,7 +35,7 @@ function Reports() {
 
   // Fetch all tasks
   useEffect(() => {
-    const fetchData = () => {
+    const fetchData = (): Unsubscribe => {
       try {
         setLoading(true);
         setError(null);
@@ -58,10 +58,17 @@ function Reports() {
                 const data = doc.data();
                 const taskDate = new Date(data.startTime);
                 const taskTime = data.totalTime || 0;
-                if (isWithinInterval(taskDate, { start: weekStart, end: weekEnd })) {
+                if (
+                  isWithinInterval(taskDate, { start: weekStart, end: weekEnd })
+                ) {
                   weekTotal += taskTime;
                 }
-                if (isWithinInterval(taskDate, { start: monthStart, end: monthEnd })) {
+                if (
+                  isWithinInterval(taskDate, {
+                    start: monthStart,
+                    end: monthEnd,
+                  })
+                ) {
                   monthTotal += taskTime;
                 }
                 total += taskTime;
@@ -100,7 +107,7 @@ function Reports() {
   }, []);
 
   // Format time
-  const formatTime = (timeInMillis: number) => {
+  const formatTime = (timeInMillis: number): string => {
     const date = addMilliseconds(new Date(0), timeInMillis);
     return format(date, "HH:mm:ss");
   };
@@ -113,7 +120,7 @@ function Reports() {
         date: format(new Date(task.date), "do MMM yyy"),
         status: task.status,
       };
-    };
+    });
     const csvContent =
       "data:text/csv;charset=utf-8," +
       exportData.map((row) => Object.values(row).join(",")).join("\n");
@@ -135,8 +142,8 @@ function Reports() {
       <div className="container mx-auto px-4 py-10">
         <header className="flex justify-between py-6">
           <h1 className="text-4xl font-bold text-white">Routine Checker</h1>
-          <button className="text-white" title="Logout">
-            <AiOutlineLogout onClick={handleLogout} className="text-2xl" />
+          <button className="text-white" title="Logout" onClick={handleLogout}>
+            <AiOutlineLogout className="text-2xl" />
           </button>
         </header>
         <div className="bg-white p-4 my-6 rounded-md text-black max-w-md mx-auto">
@@ -175,7 +182,7 @@ function Reports() {
         <div className="bg-gradient-to-r from-red-400 to-yellow-500 p-4 rounded-md shadow-lg max-w-3xl mx-auto">
           <div className="flex flex-col sm:flex-row justify-between mb-4">
             <Link
-              to="/create-task"
+              href="/create-task"
               className="w-full sm:w-auto bg-gradient-to-r sm:mr-4 mb-4 sm:mb-0 from-red-500 to-pink-500 p-2 rounded text-white"
             >
               Add New Task

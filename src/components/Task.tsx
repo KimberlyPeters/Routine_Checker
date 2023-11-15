@@ -17,7 +17,7 @@ import {
   AiOutlineReload,
 } from "react-icons/ai";
 import { FaCheck, FaTimes } from "react-icons/fa";
-import app from "../helpers/firebase";
+import { app } from "@/helpers/firebase";
 
 // Instance of Firestore
 const db = getFirestore(app);
@@ -38,8 +38,10 @@ function Task({ task }: TaskProps) {
   // Local state
   const [localTask, setLocalTask] = useState(task);
   const [isEditing, setIsEditing] = useState(false);
-  const [newTaskDescription, setNewTaskDescription] = useState(localTask.task);
-
+  // const [newTaskDescription, setNewTaskDescription] = useState(localTask.task);
+  const [newTaskDescription, setNewTaskDescription] = useState(
+    localTask?.task || "No task available!!" // Provide a default value if localTask is undefined
+  );
   // Handle Edit
   const handleEdit = () => {
     setIsEditing(true);
@@ -86,27 +88,28 @@ function Task({ task }: TaskProps) {
         </div>
       );
     }
-
-    return <p className="text-gray-600">{task.task}</p>;
+    return task && task.task ? (
+      <p className="text-gray-600">{task.task}</p>
+    ) : (
+      <p className="text-gray-600">Task description not available</p>
+    );
   };
+  // return <p className="text-gray-600">{task.task}</p>;
+  // };
 
   // Handle Start
   const handleStart = async () => {
     try {
+      const startTime = Date.now();
       await updateDoc(doc(db, "tasks", localTask.id), {
         status: "in_progress",
-        startTime: Date.now(),
+        startTime,
       });
-      const taskDoc = doc(db, "tasks", localTask.id);
-      onSnapshot(taskDoc, (docSnap) => {
-        if (docSnap.exists()) {
-          setLocalTask({
-            ...docSnap.data(),
-            date: localTask.date,
-            id: localTask.id,
-          });
-        }
-      });
+      setLocalTask((prevState) => ({
+        ...prevState,
+        status: "in_progress",
+        startTime,
+      }));
     } catch (error) {
       console.error("Error starting task:", error);
     }
@@ -119,21 +122,19 @@ function Task({ task }: TaskProps) {
         ? Date.now() - localTask.startTime
         : 0;
       const newTotalTime = (localTask.totalTime || 0) + elapsed;
+
       await updateDoc(doc(db, "tasks", localTask.id), {
         status: "paused",
         endTime: Date.now(),
         totalTime: newTotalTime,
       });
-      const taskDoc = doc(db, "tasks", localTask.id);
-      onSnapshot(taskDoc, (docSnap) => {
-        if (docSnap.exists()) {
-          setLocalTask({
-            ...docSnap.data(),
-            date: localTask.date,
-            id: localTask.id,
-          });
-        }
-      });
+
+      setLocalTask((prevState) => ({
+        ...prevState,
+        status: "paused",
+        endTime: Date.now(),
+        totalTime: newTotalTime,
+      }));
     } catch (error) {
       console.error("Error pausing task:", error);
     }
@@ -186,12 +187,18 @@ function Task({ task }: TaskProps) {
         <div className="flex items-center space-x-2">
           <AiOutlineCalendar className="text-gray-600" />
           <p className="text-gray-600">
-            {format(new Date(localTask.date), "do MMM yyyy")}
+            {localTask && localTask.date
+              ? format(new Date(localTask.date), "do MMM yyyy")
+              : "Date not available"}
           </p>
+
+          {/* <p className="text-gray-600">
+            {format(new Date(localTask.date), "do MMM yyyy")}
+          </p> */}
         </div>
       </div>
       <div className="flex items-center space-x-2 justify-center">
-        <BsCircleFill
+        {/* <BsCircleFill
           color={
             localTask.status === "paused"
               ? "red"
@@ -199,12 +206,36 @@ function Task({ task }: TaskProps) {
               ? "green"
               : "yellow"
           }
+        /> */}
+        {/* <BsCircleFill
+          color={
+            localTask && localTask.status === "paused"
+              ? "red"
+              : localTask && localTask.status === "in_progress"
+              ? "green"
+              : "yellow"
+          }
         />
-        <p>{localTask.status}</p>
+
+        <p>{localTask.status}</p> */}
+        {localTask ? (
+          <BsCircleFill
+            color={
+              localTask.status === "paused"
+                ? "red"
+                : localTask.status === "in_progress"
+                ? "green"
+                : "yellow"
+            }
+          />
+        ) : (
+          <span>Default Value</span>
+        )}
       </div>
-      <div className="flex items-center space-x-2 justify-center md:justify-end">
+      {/* Render buttons */}
+      <div className="flex items-center space-x-2 justify-center">
         {/* Render buttons */}
-        {handleRenderButtons()}
+        {localTask && localTask.status && handleRenderButtons()}
         <AiOutlineEdit
           onClick={handleEdit}
           className="text-2xl text-purple-400 cursor-pointer"
@@ -214,6 +245,18 @@ function Task({ task }: TaskProps) {
           className="text-2xl text-red-500 cursor-pointer"
         />
       </div>
+
+      {/* <div className="flex items-center space-x-2 justify-center md:justify-end">
+        {handleRenderButtons()}
+        <AiOutlineEdit
+          onClick={handleEdit}
+          className="text-2xl text-purple-400 cursor-pointer"
+        />
+        <AiOutlineDelete
+          onClick={handleDelete}
+          className="text-2xl text-red-500 cursor-pointer"
+        />
+      </div> */}
     </div>
   );
 }

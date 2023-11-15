@@ -9,9 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "alpinejs": "^3.10.2",
     "firebase": "^10.5.0",
     "next": "^14.0.1",
     "react": "^18",
+    "react-datepicker": "^4.21.0",
     "react-dom": "^18",
     "react-icons": "^4.11.0",
     "react-router-dom": "^6.18.0",

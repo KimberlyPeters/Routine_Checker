@@ -79,7 +79,7 @@ const createTask = () => {
           </div>
           <div className="flex justify-end">
             <button
-              disabled={loading}
+              disabled={success}
               type="submit"
               className="w-full bg-gradient-to-r from-blue-500 to-purple-500 bg-opacity-50 hover:bg-opacity-75 text-white py-3 px-6 rounded focus:outline-none focus:ring-2 focus:ring-white"
             >
