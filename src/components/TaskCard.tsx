@@ -4,7 +4,7 @@ const TaskCard = () => {
   return (
     <>
       <div className="flex sm:flex-row flex-col space-y-2 sm:space-x-2 flex-row w-full items-center justify-center min-h-1/4">
-        <div className="flex flex-wrap flex-row sm:flex-col justify-center items-center w-full sm:w-1/4 p-5 bg-white rounded-md shadow-xl border-l-4 border-blue-300 gap: 30px;">
+        <div className="flex flex-wrap flex-row sm:flex-col justify-center items-center w-full sm:w-1/4 p-5 bg-white rounded-md shadow-xl border-l-4 border-blue-300">
           <div className="flex justify-between w-full">
             <div>
               <div className="p-2">

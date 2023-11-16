@@ -78,7 +78,8 @@ const TaskActivity = () => {
   return (
     <>
       <section>
-        <h2 className="mb-6 text-xl font-semibold dark:text-gray-400">
+        <h2 className="my-10
+         text-xl font-semibold dark:text-gray-400">
           Notification
         </h2>
 
