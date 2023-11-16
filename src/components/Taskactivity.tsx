@@ -3,8 +3,14 @@ import React, { useEffect, useState } from "react";
 import { AiOutlineFieldTime, AiFillDelete } from "react-icons/ai";
 import { FaPencilAlt } from "react-icons/fa";
 
-import { collection, getDocs, deleteDoc, doc, onSnapshot } from "firebase/firestore";
-import { db } from "@/helpers/firebase";
+import {
+  collection,
+  getDocs,
+  deleteDoc,
+  doc,
+  onSnapshot,
+} from "firebase/firestore";
+import { db, auth } from "@/helpers/firebase";
 
 // Define a type for tasks
 interface Task {
@@ -25,15 +31,20 @@ const TaskActivity = () => {
   const [newTaskDescription, setNewTaskDescription] = useState<string>(""); // Set newTaskDescription as a string
 
   useEffect(() => {
+    const userId = auth.currentUser.uid;
     const tasksCollection = collection(db, "tasks");
+    const userTasksQuery = collection(db, "tasks");
 
-    const unsubscribe = onSnapshot(tasksCollection, (querySnapshot) => {
+    const unsubscribe = onSnapshot(userTasksQuery, (querySnapshot) => {
       const tasksData: Task[] = [];
       querySnapshot.forEach((doc) => {
-        tasksData.push({
-          id: doc.id,
-          ...doc.data(),
-        });
+        // Check if the task belongs to the logged-in user
+        if (doc.data().userId === userId) {
+          tasksData.push({
+            id: doc.id,
+            ...doc.data(),
+          });
+        }
       });
       setTasks(tasksData);
     });
@@ -42,24 +53,6 @@ const TaskActivity = () => {
       unsubscribe();
     };
   }, []);
-
-  // function to handle task display
-  // const fetchTasks = async () => {
-  //       try {
-  //         const tasksCollection = collection(db, "tasks");
-  //         const tasksSnapshot = await getDocs(tasksCollection);
-  //         const tasksData = tasksSnapshot.docs.map((doc) => ({
-  //           id: doc.id,
-  //           ...doc.data(),
-  //         })) as Task[]; // Assert the data as Task[]
-  //         setTasks(tasksData);
-  //       } catch (error) {
-  //         console.error("Error fetching tasks:", error);
-  //       }
-  //     };
-
-  //     fetchTasks();
-  //   }, []);
 
   //   function to handle task Deletion
   const handleDelete = async (taskId: string) => {
@@ -127,7 +120,6 @@ const TaskActivity = () => {
                   className="w-8 h-8 mr-4 text-blue-500"
                   viewBox="0 0 16 16"
                 >
-                  {/* SVG Paths */}
                   <path d="m14.12 10.163 1.715.858c.22.11.22.424 0 .534L8.267 15.34a.598.598 0 0 1-.534 0L.165 11.555a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.66zM7.733.063a.598.598 0 0 1 .534 0l7.568 3.784a.3.3 0 0 1 0 .535L8.267 8.165a.598.598 0 0 1-.534 0L.165 4.382a.299.299 0 0 1 0-.535L7.733.063z" />
                   <path d="m14.12 6.576 1.715.858c.22.11.22.424 0 .534l-7.568 3.784a.598.598 0 0 1-.534 0L.165 7.968a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.659z" />
                 </svg>
@@ -142,7 +134,7 @@ const TaskActivity = () => {
                       className="text-2xl text-red-500 cursor-pointer"
                     />
 
-                    <FaPencilAlt />
+                    <FaPencilAlt onClick={() => handleEdit(task.id)} />
                   </div>
                 </div>
               </div>

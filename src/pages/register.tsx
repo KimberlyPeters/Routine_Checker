@@ -7,6 +7,8 @@ import useAuth from "@/hooks/useAuth";
 import Spinner from "../components/Spinner";
 import useFieldValidation from "@/helpers/validations";
 import { toast } from "react-toastify";
+import { FcGoogle } from "react-icons/fc";
+
 
 const Register: React.FC = () => {
   const { passwordVisible, togglePasswordVisibility } = usePasswordVisibility();
