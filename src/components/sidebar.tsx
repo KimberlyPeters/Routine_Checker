@@ -7,6 +7,11 @@ import { useRouter } from "next/navigation";
 import { auth } from "@/helpers/firebase";
 import { toast } from "react-toastify";
 import Spinner from "../components/Spinner";
+import Task from "@/components/Task";
+import TaskCard from "@/components/TaskCard";
+import CreateTask from "@/components/createTask";
+import TaskActivity from "@/components/Taskactivity";
+
 
 const Sidebar = () => {
   const [asideOpen, setAsideOpen] = useState(true);
@@ -108,63 +113,87 @@ const Sidebar = () => {
           )}
         </div>
       </header>
-      <aside
-        className={`flex w-72 flex-col space-y-2 border-r-2 border-gray-200 bg-white p-2 ${
-          asideOpen ? "" : "hidden"
-        }`}
-        style={{ height: "90.5vh" }}
-      >
-        <Link
-          href="/dashboard"
-          className="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 hover:text-blue-600"
+      <div className="flex">
+        <aside
+          className={`flex w-72 flex-col space-y-2 border-r-2 border-gray-200 bg-white p-2 ${
+            asideOpen ? "" : "hidden"
+          }`}
+          style={{ height: "90.5vh" }}
         >
-          <span className="text-2xl">
-            <i className="bx bx-home"></i>
-          </span>
-          <span>Dashboard</span>
-        </Link>
+          <Link
+            href="/dashboard"
+            className="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 hover:text-blue-600"
+          >
+            <span className="text-2xl">
+              <i className="bx bx-home"></i>
+            </span>
+            <span>Dashboard</span>
+          </Link>
 
-        <Link
-          href="/Task"
-          className="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 hover:text-blue-600"
-        >
-          <span className="text-2xl">
-            <i className="bx bx-calendar-event"></i>
-          </span>
-          <span>Task</span>
-        </Link>
+          <Link
+            href="/Task"
+            className="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 hover:text-blue-600"
+          >
+            <span className="text-2xl">
+              <i className="bx bx-calendar-event"></i>
+            </span>
+            <span>Task</span>
+          </Link>
 
-        <Link
-          href="/Pomodoro"
-          className="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 hover:text-blue-600"
-        >
-          <span className="text-2xl">
-            <i className="bx bx-time-five"></i>
-          </span>
-          <span>Pomodoro Timer</span>
-        </Link>
+          <Link
+            href="/Pomodoro"
+            className="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 hover:text-blue-600"
+          >
+            <span className="text-2xl">
+              <i className="bx bx-time-five"></i>
+            </span>
+            <span>Pomodoro Timer</span>
+          </Link>
 
-        <a
-          href="#"
-          className="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 hover:text-blue-600"
-        >
-          <span className="text-2xl">
-            <i className="bx bx-user-check"></i>
-          </span>
-          <span>Assign task</span>
-        </a>
+          <a
+            href="#"
+            className="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 hover:text-blue-600"
+          >
+            <span className="text-2xl">
+              <i className="bx bx-user-check"></i>
+            </span>
+            <span>Assign task</span>
+          </a>
 
-        <Link
-          href="#"
-          className="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 hover:text-blue-600"
-        >
-          <span className="text-2xl">
-            <i className="bx bx-user"></i>
-          </span>
-          <span>Profile</span>
-        </Link>
-      </aside>
-      
+          <Link
+            href="#"
+            className="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 hover:text-blue-600"
+          >
+            <span className="text-2xl">
+              <i className="bx bx-user"></i>
+            </span>
+            <span>Profile</span>
+          </Link>
+        </aside>
+        <section className="w-full">
+        <div className="dashboard-section">
+          <h1 className="font-heading text-5xl text-white text-center m-auto">
+            Welcome Back,{" "}
+            {auth.currentUser
+              ? auth.currentUser.displayName || "user name"
+              : "user"}
+          </h1>
+        </div>
+        <div className="Task-overview flex flex-col flex-wrap items-center py-10 min-h-1/2">
+          <div className="">
+            <h2 className="pb-2 mb-2 text-xl font-bold text-gray-800 md:text-4xl dark:text-gray-300">
+              Task Overview
+            </h2>
+          </div>
+          <div>
+            <TaskCard />
+          </div>
+          <div>
+            <TaskActivity />
+          </div>
+        </div>
+        </section>
+      </div>
     </>
   );
 };
