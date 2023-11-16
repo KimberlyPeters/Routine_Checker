@@ -115,7 +115,7 @@ const Sidebar = () => {
         style={{ height: "90.5vh" }}
       >
         <Link
-          href="/"
+          href="/dashboard"
           className="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 hover:text-blue-600"
         >
           <span className="text-2xl">
