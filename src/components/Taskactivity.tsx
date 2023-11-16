@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { AiOutlineFieldTime, AiFillDelete } from "react-icons/ai";
 import { FaPencilAlt } from "react-icons/fa";
 
-import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
+import { collection, getDocs, deleteDoc, doc, onSnapshot } from "firebase/firestore";
 import { db } from "@/helpers/firebase";
 
 // Define a type for tasks
@@ -20,33 +20,48 @@ interface Task {
 const TaskActivity = () => {
   // Initialize tasks state with the Task type
   const [tasks, setTasks] = useState<Task[]>([]);
-  const [localTask, setLocalTask] = useState<Task | null>(null); 
+  const [localTask, setLocalTask] = useState<Task | null>(null);
   const [isEditing, setIsEditing] = useState(false);
   const [newTaskDescription, setNewTaskDescription] = useState<string>(""); // Set newTaskDescription as a string
 
-
-
   useEffect(() => {
+    const tasksCollection = collection(db, "tasks");
 
-    // function to handle task display
-    const fetchTasks = async () => {
-      try {
-        const tasksCollection = collection(db, "tasks");
-        const tasksSnapshot = await getDocs(tasksCollection);
-        const tasksData = tasksSnapshot.docs.map((doc) => ({
+    const unsubscribe = onSnapshot(tasksCollection, (querySnapshot) => {
+      const tasksData: Task[] = [];
+      querySnapshot.forEach((doc) => {
+        tasksData.push({
           id: doc.id,
           ...doc.data(),
-        })) as Task[]; // Assert the data as Task[]
-        setTasks(tasksData);
-      } catch (error) {
-        console.error("Error fetching tasks:", error);
-      }
-    };
+        });
+      });
+      setTasks(tasksData);
+    });
 
-    fetchTasks();
+    return () => {
+      unsubscribe();
+    };
   }, []);
 
-//   function to handle task Deletion
+  // function to handle task display
+  // const fetchTasks = async () => {
+  //       try {
+  //         const tasksCollection = collection(db, "tasks");
+  //         const tasksSnapshot = await getDocs(tasksCollection);
+  //         const tasksData = tasksSnapshot.docs.map((doc) => ({
+  //           id: doc.id,
+  //           ...doc.data(),
+  //         })) as Task[]; // Assert the data as Task[]
+  //         setTasks(tasksData);
+  //       } catch (error) {
+  //         console.error("Error fetching tasks:", error);
+  //       }
+  //     };
+
+  //     fetchTasks();
+  //   }, []);
+
+  //   function to handle task Deletion
   const handleDelete = async (taskId: string) => {
     try {
       await deleteDoc(doc(db, "tasks", taskId));
@@ -57,7 +72,7 @@ const TaskActivity = () => {
       console.error("Error deleting task:", error);
     }
   };
-//   function to handle task edit
+  //   function to handle task edit
   const handleEdit = (taskId: string) => {
     const foundTask = tasks.find((task) => task.id === taskId);
     if (foundTask) {

@@ -41,9 +41,10 @@ const createTask = () => {
 
       setsuccess(true);
       setTask("");
-      //   router.push("/details");
+      setLoading(false);
     } catch (error: any) {
       setError("Error adding task: " + error.message);
+      setLoading(false);
     }
   };
 
@@ -83,7 +84,7 @@ const createTask = () => {
               type="submit"
               className="w-full bg-gradient-to-r from-blue-500 to-purple-500 bg-opacity-50 hover:bg-opacity-75 text-white py-3 px-6 rounded focus:outline-none focus:ring-2 focus:ring-white"
             >
-              {loading ? <Spinner/> : "Create Task"}
+              {loading ? <Spinner /> : "Create Task"}
             </button>
           </div>
           {error && <p className="text-red-500 text-sm mt-2">{error}</p>}

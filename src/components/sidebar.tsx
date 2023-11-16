@@ -164,6 +164,7 @@ const Sidebar = () => {
           <span>Profile</span>
         </Link>
       </aside>
+      
     </>
   );
 };
