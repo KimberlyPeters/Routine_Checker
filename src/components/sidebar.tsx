@@ -8,8 +8,6 @@ import { auth } from "@/helpers/firebase";
 import { toast } from "react-toastify";
 import Spinner from "../components/Spinner";
 
-
-
 const Sidebar = () => {
   const [asideOpen, setAsideOpen] = useState(true);
   const [profileOpen, setProfileOpen] = useState(false);
@@ -23,7 +21,7 @@ const Sidebar = () => {
     setProfileOpen(!profileOpen);
   };
   const handleLogOut = () => {
-    setLogOutLoading(true)
+    setLogOutLoading(true);
     auth
       .signOut()
       .then(() => {
@@ -36,7 +34,6 @@ const Sidebar = () => {
         toast.error("Log-out error:", error);
       });
   };
-
 
   return (
     <>
@@ -73,28 +70,35 @@ const Sidebar = () => {
             onClick={toggleProfile}
             className="h-9 w-9 overflow-hidden rounded-full"
           >
-            <img src="https://plchldr.co/i/40x40?bg=111111" alt="plchldr.co" />
+            {auth.currentUser && auth.currentUser.photoURL && (
+              <img src={auth.currentUser.photoURL} alt="User" />
+            )}
           </button>
           {profileOpen && (
             <div className="absolute right-2 mt-1 w-48 divide-y divide-gray-200 rounded-md border border-gray-200 bg-white shadow-md">
               <div className="flex items-center space-x-2 p-2">
-                <img
-                  src="https://plchldr.co/i/40x40?bg=111111"
-                  alt="plchldr.co"
-                  className="h-9 w-9 rounded-full"
-                />
-                <div className="font-medium">{auth.currentUser ? auth.currentUser.displayName || "user name": "user"}</div>
+                {auth.currentUser?.photoURL && (
+                  <img
+                    src={auth.currentUser.photoURL}
+                    alt="plchldr.co"
+                    className="h-9 w-9 rounded-full"
+                  />
+                )}
+
+                <div className="font-medium">
+                  {auth.currentUser
+                    ? auth.currentUser.displayName || "user name"
+                    : "user"}
+                </div>
               </div>
 
               <div className="p-2">
                 <button
                   type="submit"
-
                   className="flex items-center space-x-2 transition hover:text-blue-600"
                   onClick={(e) => {
                     e.preventDefault();
                     handleLogOut();
-                    
                   }}
                 >
                   {logOutLoading ? <Spinner /> : "Log Out"}
@@ -131,7 +135,7 @@ const Sidebar = () => {
         </Link>
 
         <Link
-          href="#"
+          href="/Pomodoro"
           className="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 hover:text-blue-600"
         >
           <span className="text-2xl">
