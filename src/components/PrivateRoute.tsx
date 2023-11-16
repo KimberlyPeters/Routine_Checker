@@ -1,17 +1,15 @@
-import React, { useEffect, useState } from "react";
-import { getAuth, onAuthStateChanged, User } from "firebase/auth";
-import { Navigate, useLocation, Outlet, useNavigate } from "react-router-dom";
-import Loading from "./Loading";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import Spinner from "@/components/Spinner";
+import { auth } from "@/helpers/firebase";
 
-const PrivateRoute: React.FC = ({ children }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
+const PrivateRoute = ({ children }) => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [loading, setLoading] = useState(true);
-  const location = useLocation();
-  const navigate = useNavigate();
+  const router = useRouter();
 
   useEffect(() => {
-    const auth = getAuth();
-    const unsubscribe = onAuthStateChanged(auth, (user: User | null) => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
       setIsAuthenticated(!!user);
       setLoading(false);
     });
@@ -19,19 +17,18 @@ const PrivateRoute: React.FC = ({ children }) => {
     return () => unsubscribe();
   }, []);
 
-  // Check for loading
   if (loading) {
-    return <Loading />;
+    return <Spinner />;
   }
 
-  if (isAuthenticated === true) {
-    return <Outlet />;
-  } else if (isAuthenticated === false) {
-    return <Link ="/login" />;
-  } else {
-    // If isAuthenticated is still null, you can show a loading indicator or handle it differently
-    return <Loading />;
+  if (!isAuthenticated) {
+    // Redirect to login page if not authenticated
+    router.push("/login");
+    return null;
   }
+
+  // Render protected content if authenticated
+  return children;
 };
 
 export default PrivateRoute;
